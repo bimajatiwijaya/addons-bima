@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ir_validation_user,access.ir.validation.user,model_ir_model_approval,base.group_user,1,0,0,0
+access_validator_user,access.validator.user,model_res_users_approval,base.group_user,1,0,0,0
