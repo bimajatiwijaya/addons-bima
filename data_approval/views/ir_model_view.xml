@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_model_inherit_form_view" model="ir.ui.view">
+            <field name="name">ir.model.inherit.form.view</field>
+            <field name="model">ir.model</field>
+            <field name="inherit_id" ref="base.view_model_form"/>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="need_approval" groups="data_approval.group_model_approval_user"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

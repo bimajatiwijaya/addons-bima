@@ -11,6 +11,7 @@
         'security/model_approval_security.xml',
         'security/ir.model.access.csv',
         'views/model_approval_view.xml',
+        'views/ir_model_view.xml',
     ],
     'installable': True,
     'application': True,
