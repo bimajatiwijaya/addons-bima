@@ -1,4 +1,7 @@
-Under development<br/>
+Goal : Learn to implement TDD (Test Driven Development)<br/>
+
+Enjoy modules and feed back :) <br/>
+
 
 All modules development using odoo v.9c :<br/>
 last commit 14bd6dd277bd5d70a716a7723290de45d76b03ab<br/>
@@ -25,7 +28,12 @@ Date:   Wed Sep 27 16:12:36 2017 +0200<br/>
         <tr>
             <td>1</td>
             <td>data_approval</td>
-            <td>Modul ini merupakan master modul approval. Setelah modul ini diinstall pembuatan kontak dapat diatur melalui beberapa approval dari user-user yang berwenang. Contoh kasus setiap department pada perusahaan memiliki kepentingan pada data customer atau vendor jadi dalam pembuatan kontak dapat dipastikan user-user terkait sudah mengecek customer atau vendor sebelum data aktif pada odoo.</td>
+            <td>Modul ini merupakan master modul approval. Setelah modul ini diinstall pembuatan kontak dapat diatur melalui beberapa approval dari user-user yang berwenang.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>partner_approval</td>
+            <td>Pembuatan kontak akan aktif setelah semua user berwerang mengapprove kontak baru.</td>
         </tr>
     </tbody>
 </table>
