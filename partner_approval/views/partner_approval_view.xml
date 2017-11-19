@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_partner_approval_act" model="ir.actions.act_window">
+            <field name="name">Partners</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="base.view_partner_form"/>
+            <field eval="False" name="view_id"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a partner
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_partner_toapprove" name="Partners" parent="data_approval.menu_approval_management"
+                  action="action_partner_approval_act"
+                  groups="partner_approval.group_partner_approval" sequence="10"/>
+
+    </data>
+</odoo>
