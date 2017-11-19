@@ -21,6 +21,16 @@ class TestPartnerApproval(TestUserSettings):
     """
 
     def test_partner_approval(self):
+        partner_app_user = \
+            self.env.ref('partner_approval.group_partner_approval')
+        groups_id = self.partner_manager.groups_id
+        groups_id |= partner_app_user
+        self.partner_manager.write({
+            'groups_id': [(6, 0, [g.id for g in groups_id])]
+        })
+        self.partner_manager2.write({
+            'groups_id': [(6, 0, [g.id for g in groups_id])]
+        })
         partner_o = self.env['res.partner']
         partner_model_o = self.env['ir.model'].search(
             [('model', '=', 'res.partner')], limit=1)
@@ -48,7 +58,7 @@ class TestPartnerApproval(TestUserSettings):
         new_partners = new_partner1 | new_partner2
         # first approval and all partner not activated yet
         new_partners.sudo(self.partner_manager.id).approve()
-        self.asserTrue(not all([p.active for p in new_partners]))
+        self.assertTrue(not all([p.active for p in new_partners]))
         # final approval and all partner activated
         new_partners.sudo(self.partner_manager2.id).approve()
-        self.asserTrue(all([p.active for p in new_partners]))
+        self.assertTrue(all([p.active for p in new_partners]))

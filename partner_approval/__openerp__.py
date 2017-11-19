@@ -9,6 +9,7 @@
     'depends': ['data_approval'],
     'data': [
         'security/res_groups.xml',
+        'security/ir.model.access.csv',
         'views/partner_approval_view.xml',
     ],
     'installable': True,
