@@ -25,6 +25,15 @@ class TestUserSettings(TransactionCase):
             groups_id=[
                 (6, 0, [partner_manager.id, partner_user.id])]
         ))
+        self.partner_manager2 = self.res_user_model.with_context(
+            {'no_reset_password': True}).create(dict(
+            name="partner manager 2",
+            company_id=self.main_company.id,
+            login="acc2",
+            email="partner_manager2@yourcompany.com",
+            groups_id=[
+                (6, 0, [partner_manager.id, partner_user.id])]
+        ))
         self.partner_user = self.res_user_model.with_context(
             {'no_reset_password': True}).create(dict(
             name="user",
