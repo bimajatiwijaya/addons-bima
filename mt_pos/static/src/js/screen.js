@@ -92,9 +92,22 @@ screens.NumpadWidget.include({
 screens.define_action_button({
     'name': 'lock',
     'widget': LockButton,
-    'condition': function () {
-	
-	return true;
+    'confirm': function () {
+        this.gui.show_popup('password',{
+		'title': _t('Fill Password'),
+		'confirm': function(val) {
+		    var result = self.validate_pwd(val);
+		    console.log(this.pos.config.disc_pwd);
+		    if (result == true){
+			$('.selected-mode').removeClass('selected-mode');
+			$(_.str.sprintf('.mode-button[data-mode="%s"]', mode), self.$el).addClass('selected-mode');
+
+		    }else{
+			return self.define_action_button();
+		    }
+
+		},
+	    });
     },
 });
 

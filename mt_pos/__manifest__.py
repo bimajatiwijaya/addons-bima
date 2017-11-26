@@ -12,7 +12,6 @@
     """,
 
     'author': "Bite Pue MM Team, Myanmar",
-    'website': "",
     'category': 'Point Of Sale',
     'version': '0.1',
 

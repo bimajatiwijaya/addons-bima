@@ -1,4 +1,3 @@
 # -*- coding: utf-8 -*-
-
-from . import controllers
+""" POS discount and lock feature """
 from . import models
