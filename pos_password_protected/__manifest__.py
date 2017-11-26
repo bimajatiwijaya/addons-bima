@@ -30,12 +30,11 @@ Featues:
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
         'views/point_of_sale.xml',
-        'point_of_sale_view.xml',
+        'views/point_of_sale_view.xml',
     ],
     # only loaded in demonstration mode
-    'qweb': ['static/src/xml/pos_custom.xml'],
+    'qweb': ['static/src/xml/gui.xml'],
     'price': 0.00,
     'currency': 'EUR',
 }
