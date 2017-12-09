@@ -8,8 +8,12 @@
         <field name="arch" type="xml">
             <field name="iface_invoicing" position="after">
                 <field name="price_display"/>
+                <field name="payment_display"/>
+                <field name="numpad_display"/>
+                <field name="price_numpad_display" attrs="{'invisible': [('numpad_display', '=', False)]}"/>
+                <field name="disc_numpad_display" attrs="{'invisible': [('numpad_display', '=', False)]}"/>
             </field>
         </field>
     </record>
-
+NumpadWidget
 </odoo>

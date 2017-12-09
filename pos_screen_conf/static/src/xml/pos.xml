@@ -99,4 +99,67 @@
             </div>
         </div>
     </t>
+
+    <t t-name="ActionpadWidget">
+        <div class="actionpad">
+            <button t-attf-class='button set-customer #{ ( widget.pos.get_client() and widget.pos.get_client().name.length > 10) ? "decentered" : "" }' >
+                <i class='fa fa-user' />
+                <t t-if="widget.pos.get_client()">
+                    <t t-esc="widget.pos.get_client().name" />
+                </t>
+                <t t-if="!widget.pos.get_client()">
+                    Customer
+                </t>
+            </button>
+            <t t-if="widget.pos.config.payment_display">
+                <button class='button pay'>
+                    <div class='pay-circle'>
+                        <i class='fa fa-chevron-right' />
+                    </div>
+                    Payment
+                </button>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="NumpadWidget">
+        <div class="numpad">
+            <t t-if="widget.pos.config.numpad_display">
+                <button class="input-button number-char">1</button>
+                <button class="input-button number-char">2</button>
+                <button class="input-button number-char">3</button>
+                <button class="mode-button" data-mode='quantity'>Qty</button>
+                <br />
+                <button class="input-button number-char">4</button>
+                <button class="input-button number-char">5</button>
+                <button class="input-button number-char">6</button>
+                <t t-if="widget.pos.config.disc_numpad_display">
+                    <button class="mode-button" data-mode='discount'>Disc</button>
+                </t>
+                <t t-if="widget.pos.config.disc_numpad_display != true">
+                    <!-- no action -->
+                    <button class="fa fa-fw"></button>
+                </t>
+                <br />
+                <button class="input-button number-char">7</button>
+                <button class="input-button number-char">8</button>
+                <button class="input-button number-char">9</button>
+                <t t-if="widget.pos.config.price_numpad_display">
+                    <button class="mode-button" data-mode='price'>Price</button>
+                </t>
+                <t t-if="widget.pos.config.price_numpad_display != true">
+                    <button class="fa fa-fw"></button>
+                </t>
+                <br />
+                <button class="input-button numpad-minus" >+/-</button>
+                <button class="input-button number-char">0</button>
+                <button class="input-button number-char">.</button>
+                <button class="input-button numpad-backspace">
+                    <img style="pointer-events: none;" src="/point_of_sale/static/src/img/backspace.png" width="24" height="21" />
+                </button>
+            </t>
+        </div>
+    </t>
+
+
 </templates>

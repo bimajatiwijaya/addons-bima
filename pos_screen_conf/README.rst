@@ -18,7 +18,12 @@ Configuration
 1. Go to Point of Sale application.
 2. Configuration > Point of Sale.
 3. Choose POS
-4. Check Features > Price Display
+4. Check Features:
+    1. Price display product, order, tax and total.
+    2. Button payment.
+    3. Numpad screen.
+        1. Discount numpad display.
+        2. Price numpad display.
 
 Credits
 =======

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Screen configuration',
-    'version': '1.0',
+    'version': '2.0',
     'category': 'Point of Sale',
     'sequence': 6,
     'author': 'Bima Wijaya',
