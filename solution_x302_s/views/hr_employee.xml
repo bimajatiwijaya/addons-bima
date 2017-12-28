@@ -9,7 +9,6 @@
                 <data>
                     <field name="category_ids" position="after">
                         <field name="x302_s_user_id"/>
-                        <button name="sync_attendance" type="object" string="Test read from machine"/>
                     </field>
                 </data>
             </field>
