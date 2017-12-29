@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
-    'name' : 'Attendance with fingerprint X302-S',
-    'version' : '11.0',
+    'name' : 'Attendance with fingerprint Solution X302-S',
+    'version' : '10.0',
     'summary': 'Send Invoices and Track Payments',
     'sequence': 30,
     'author': 'Bima Wijaya',

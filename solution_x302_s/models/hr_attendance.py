@@ -40,6 +40,7 @@ class HrAttendance(models.Model):
         attendance_obj = self.env['hr.attendance']
         # search employee who registered on machine
         emp_ids = emp_obj.search([('x302_s_user_id', '!=', 0)])
+        print(emp_ids)
         today_attendance = attendance_obj.search([('check_in', '>=', str(today) + " 00:00:00")])
         regex = re.compile(r'[\n\r\t]') # remove 3 character
         for emp_id in emp_ids:
