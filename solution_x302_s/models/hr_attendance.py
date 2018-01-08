@@ -28,7 +28,7 @@ class HrAttendance(models.Model):
                 'uid': x302_user_id}
             block = []
             try:
-                response = r.post('http://172.16.5.11/form/Download',data=datas, stream=True)
+                response = r.post('http://172.16.5.14/form/Download',data=datas, stream=True)
                 block = response.text.split('\n')
             except:
                 # Failed to connect machine 
@@ -52,8 +52,9 @@ class HrAttendance(models.Model):
                 block.pop()
                 last_idx = len(block) - 1
                 _logger.debug("Check block => "+str(block))
-                while(last_idx > -1):
-                    row = regex.sub(' ', block[last_idx])
+                idx = 0
+                while(idx <= last_idx):
+                    row = regex.sub(' ', block[idx])
                     row = row.split(' ')
                     _logger.debug(row)
                     if row[5] == '0':
@@ -63,8 +64,8 @@ class HrAttendance(models.Model):
                             'check_in': row[2] + " " +row[3],
                         })
                         _logger.info("Succeed with ID : "+ str(respone.id))
+                        break
                     # How if user create manual and only fill check out for today ?
-                    last_idx -= 1
             else:
                 _logger.debug("UPDATE EXISTING ATTENDANCE")
                 block = get_data_from_x302_s(self, date=today, x302_user_id=emp_id.x302_s_user_id)
