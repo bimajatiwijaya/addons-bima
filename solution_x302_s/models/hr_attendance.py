@@ -65,6 +65,7 @@ class HrAttendance(models.Model):
                         })
                         _logger.info("Succeed with ID : "+ str(respone.id))
                         break
+                    idx -= 1
                     # How if user create manual and only fill check out for today ?
             else:
                 _logger.debug("UPDATE EXISTING ATTENDANCE")
