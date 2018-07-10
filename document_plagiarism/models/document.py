@@ -36,23 +36,25 @@ class Document(models.Model):
         """
         self.ensure_one()
         all_docs = self.search([('state', '=', 'confirm')])
-        doc_ids = self.document_ids
         for doc in all_docs:
+            doc_ids = self.document_ids
             similarity_result = cosineSim.cosineSim(
                 doc.description, self.description)
-            exist = doc_ids.filtered(lambda a: a.compared_document_id.id != self.id)
-            if exist:
-                for lin_doc in exist:
-                    if lin_doc.cosine_similarity != similarity_result:
-                        lin_doc.write({'cosine_similarity': similarity_result})
-                    else:
-                        continue
-            else:
+            # search existing comparison
+            exist = doc_ids.filtered(
+                lambda a: a.compared_document_id.id == doc.id)
+            for line_doc in exist:
+                if line_doc.cosine_similarity != similarity_result:
+                    line_doc.write({'cosine_similarity': similarity_result})
+            # create new comparison
+            if not exist:
                 if self.id != doc.id:
                     self.env['document.plagiarism'].create(
                         {'document_id': self.id,
                          'cosine_similarity': similarity_result,
                          'compared_document_id': doc.id})
+
+
 
     @api.multi
     def confirm(self):
